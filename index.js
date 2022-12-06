@@ -1,7 +1,6 @@
 const fs = require("fs");
 const {
   Client,
-  Collection,
   GatewayIntentBits,
   Partials,
 } = require("discord.js");
@@ -56,21 +55,14 @@ client.once("ready", () => {
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
 
-  const logchannel = interaction.guild.channels.cache.find(
-    (channel) => channel.name === "🔒│captcha-log"
-  );
-  const alertchn = interaction.guild.channels.cache.find(
-    (channel) => channel.name === "⛔│제재"
-  );
   let command = client.commands.get(interaction.commandName);
 
   if (!command) return;
 
   try {
-    await command.execute(interaction, logchannel, alertchn);
+    await command.execute(interaction);
   } catch (error) {
     console.error(error);
-    quick.sendErrorEmbed(interaction, error);
   }
 });
 
