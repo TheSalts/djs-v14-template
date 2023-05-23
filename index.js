@@ -3,6 +3,7 @@ const {
   Client,
   GatewayIntentBits,
   Partials,
+  Collection,
 } = require("discord.js");
 const { token } = require("./src/config.json");
 
