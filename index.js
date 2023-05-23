@@ -29,7 +29,6 @@ const client = new Client({
     Partials.GuildScheduledEvent,
   ],
 });
-const quick = require("./src/util/quick");
 
 client.commands = new Collection();
 const commandFiles = fs
